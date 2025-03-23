@@ -11,7 +11,7 @@ import { yamlFile } from './file-models/config.yml'
 const install = sdk.setupInstall(async ({ effects }) => {
   const name = '{{hello}}'
 
-  await yamlFile.write({ name })
+  await yamlFile.write(effects, { name })
 
   await sdk.store.setOwn(
     effects,

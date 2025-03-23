@@ -15,7 +15,7 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
    *
    * In this section, we define *additional* health checks beyond those included with each daemon (below).
    */
-  const healthReceipts: T.HealthReceipt[] = []
+  const healthChecks: T.HealthCheck[] = []
 
   /**
    * ======================== Daemons ========================
@@ -24,7 +24,7 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
    *
    * Each daemon defines its own health check, which can optionally be exposed to the user.
    */
-  return sdk.Daemons.of(effects, started, healthReceipts).addDaemon('primary', {
+  return sdk.Daemons.of(effects, started, healthChecks).addDaemon('primary', {
     subcontainer: { imageId: '{{id}}' },
     command: ['hello-world'],
     mounts: sdk.Mounts.of().addVolume('main', null, '/data', false),

@@ -41,7 +41,7 @@ export const setName = sdk.Action.withInput(
     if (yaml?.name === input.name) return
 
     await Promise.all([
-      yamlFile.merge(input),
+      yamlFile.merge(effects, input),
       sdk.store.setOwn(
         effects,
         sdk.StorePath.secretPhrase,
