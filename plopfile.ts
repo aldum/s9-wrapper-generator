@@ -24,7 +24,7 @@ export default function (plop: NodePlopAPI) {
     {
       type: 'input',
       name: 'hello',
-      message: 'name',
+      message: 'name (used in example action)',
       default: 'World'
     }
   ]
