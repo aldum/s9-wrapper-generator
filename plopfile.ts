@@ -12,7 +12,12 @@ export default function (plop: NodePlopAPI) {
       type: 'input',
       name: 'name',
       message: 'package name',
-      default: (answers: any) => answers.id
+      default: (answers: any) => {
+        const id = answers.id
+        const capitalized =
+          `${id.charAt(0).toUpperCase()}${id.slice(1)}`
+        return capitalized
+      }
     },
     {
       type: 'input',
