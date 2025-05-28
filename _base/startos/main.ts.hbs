@@ -25,9 +25,19 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
    * Each daemon defines its own health check, which can optionally be exposed to the user.
    */
   return sdk.Daemons.of(effects, started, healthChecks).addDaemon('primary', {
-    subcontainer: { imageId: '{{id}}' },
+    subcontainer:
+    await sdk.SubContainer.of(
+      effects,
+      { imageId: '{{id}}' },
+      sdk.Mounts.of().mountVolume({
+        volumeId: 'main',
+        subpath: null,
+        mountpoint: '/data',
+        readonly: false,
+      }),
+      '{{id}}-sub',
+    ),
     command: ['hello-world'],
-    mounts: sdk.Mounts.of().addVolume('main', null, '/data', false),
     ready: {
       display: 'Web Interface',
       fn: () =>
