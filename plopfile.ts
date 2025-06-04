@@ -26,12 +26,6 @@ export default function (plop: NodePlopAPI) {
       default: (answers: any) =>
         `../${answers.id}-startos`
     },
-    {
-      type: 'input',
-      name: 'hello',
-      message: 'name (used in example action)',
-      default: 'World'
-    }
   ]
   const actions = [
     {

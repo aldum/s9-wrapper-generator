@@ -1,7 +1,7 @@
 {
   "scripts": {
     "plop": "cross-env NODE_OPTIONS='--import tsx' plop --plopfile=plopfile.ts",
-    "test" : "rm -rf out/* ; npm run plop -- base testpkg 'Test Service' 'out/testpkg' World" ,
+    "test": "rm -rf out/* ; npm run plop -- base testpkg 'Test Service' 'out/testpkg'",
     "test_build" : "npm run test && cd 'out/testpkg' && make",
     "test_install" : "npm run test_build && cd 'out/testpkg' && make install",
     "test_name" : "rm -rf out/* ; npm run plop -- base testpkg _ 'out/testpkg'",
